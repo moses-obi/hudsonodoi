@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT",
+    Calibri, "Trebuchet MS", sans-serif;
+  overflow-x: hidden;
+  background-color: #333;
+  color: #222;
+  margin: 0;
+}
+
+.container {
+  background-color: white;
+  transform-origin: top left;
+  transition: transform 0.6s linear;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 50px;
+}
+
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+.circle-container {
+  position: fixed;
+  z-index: 1;
+  top: -100px;
+  left: -100px;
+}
+
+.circle {
+  background-color: tomato;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.6s linear;
+}
+
+.circle button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  left: 60%;
+  transform-origin: top right;
+  transition: transform 0.6s linear;
+}
+
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.content img {
+  max-width: 100%;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: grey;
+  font-style: italic;
+}
+
+.content p {
+  color: black;
+  line-height: 1.5;
+}
+
+.container.show-nav + nav a {
+  transform: translateX(0);
+  transition-delay: 0.4s;
+}
+
+/* styling the nav  */
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+nav a {
+  display: flex;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  line-height: 2.9;
+  padding-left: 30px;
+  text-transform: uppercase;
+  transform: translateX(-100%);
+  transition: transform .4s ease-in;
+
+}
+
+nav a span {
+  margin-left: 20px;
+}
+
+nav a + a {
+  margin-left: 15px;
+  transform: translateX(-150%);
+  transition: transform 0.6s ease-in;
+}
+
+nav a + a + a {
+  margin-left: 30px;
+  transform: translateX(-150%);
+  transition: transform .8s ease-in;
+}
